@@ -19,6 +19,7 @@ public class UserRowMapper  implements RowMapper{
 			user.setRoleId(rs.getInt(5));
 			user.setStatus(rs.getInt(6));
 			user.setCreateTime(rs.getDate(7));
+			user.setRoleName(rs.getString(8));
 			return user;
 		} catch (SQLException e) {
 			System.out.println("userrowmapper转出错");

@@ -64,10 +64,69 @@
 		<result name="success" type="forward">/emps.action</result>
 	</action>
 
-	<!--	权限-->
+	<!--	用户-->
 	<action name="/users.action" class="userController" method="users">
 		<result name="success" type="forward">/njwb/permission/users.jsp</result>
 	</action>
+	<action name="/able.action" class="userController" method="userAble">
+		<result name="success" type="forward">/users.action</result>
+	</action>
+
+	<action name="/userModify.action" class="userController" method="userModify">
+		<result name="success" type="forward">/users.action</result>
+	</action>
+	<action name="/userLook.action" class="userController" method="userLook">
+		<result name="success" type="forward">/njwb/permission/userLook.jsp
+		</result>
+	</action>
+	<action name="/loginOut.action" class="userController" method="loginOut">
+		<result name="success" type="forward">/login.action</result>
+	</action>
+	<action name="/passwdReset.action" class="userController"
+		method="modifyUserPasswd">
+		<result name="success" type="forward">/login.action</result>
+	</action>
+
+
+	<!--	角色-->
+	<!--获得所有角色-->
+	<action name="/roles.action" class="roleController" method="roles">
+		<result name="success" type="forward">/njwb/permission/roles.jsp</result>
+	</action>
+	<action name="/roleAdd.action" class="roleController" method="roleAdd">
+		<result name="success" type="forward">/roles.action</result>
+	</action>
+	<action name="/roleDelete.action" class="roleController" method="roleDelete">
+		<result name="success" type="forward">/roles.action</result>
+	</action>
+	<action name="/roleLook.action" class="roleController" method="roleLook">
+		<result name="success" type="forward">/njwb/permission/roleLook.jsp
+		</result>
+	</action>
+	<action name="/roleModify.action" class="roleController" method="roleModify">
+		<result name="success" type="forward">/roles.action</result>
+	</action>
+
+
+	<!--	//账单bill-->
+	<action name="/bills.action" class="billController" method="bills">
+		<result name="success" type="forward">/njwb/bill/bills.jsp</result>
+	</action>
+	<action name="/billAdd.action" class="billController" method="billAdd">
+		<result name="success" type="forward">/bills.action</result>
+	</action>
+	<action name="/billDelete.action" class="billController" method="billDelete">
+		<result name="success" type="forward">/bills.action</result>
+	</action>
+	
+	<action name="/billModify.action" class="billController" method="billModify">
+		<result name="success" type="forward">/bills.action</result>
+	</action>
+	
+	<action name="/billLook.action" class="billController" method="billLook">
+		<result name="success" type="forward">/njwb/bill/billLook.jsp</result>
+	</action>
+
 
 
 </actions>

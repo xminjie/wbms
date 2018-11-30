@@ -30,49 +30,50 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<script type="text/javascript">
 		
-		function del(empNo){
-			if(window.confirm("确认要删除吗?")){
-				
-				window.location="empDelete.action" + "?empNo="+ empNo ;
-				
-				alert("删除成功");
-				
-			}
-		}
+		 
 		
-		function look(empNo){
+		function able(account){
 				
-				window.location="empLook.action" + "?empNo="+ empNo ;
+				window.location="able.action" + "?account="+ account ;
 								
 		}
+		
+		function showUserChangeRole(account){
+				
+				window.location="userLook.action" + "?account="+ account ;
+								
+		}
+		
 	
 	</script>
   </head>
   
   <body>
          	<h1 class="title">首页  &gt;&gt;用户管理 </h1>
-         	${userList} 
-         	<div class="add">
+          	<div class="add">
          		<a href="empShowAdd.action" target="contentPage"><img alt="" src="img/add.png" width="18px" height="18px">添加员工</a>
          	</div>
+         	${userList}
          	<table class="deptInfo">
          		<tr class="titleRow">
        				<td>账户</td>
        				<td>名称</td>
+       				<td>角色</td>
        				<td>状态</td>
          			<td>操作列表</td>
          		</tr>
           		<c:forEach items="${userList}" var = "user">
          			<tr class="titleRow">
          				<td>${user.account}</td>
-         				<td>  </td>
+         				<td>${user.name}  </td>
+         				<td>${user.roleName}  </td>
          				<td>${user.status == 1 ? "正常":"禁用"}  </td>
 
          				<td>
-         				<img alt="" src="img/delete.png" class="operateImg" onclick="del('${emp.empNo}')">
-         				<a href="javascript:; target="contentPage"  onclick="look('${emp.empNo}')"><img alt="" src="img/edit.png" class="operateImg" ></a>
-         				<a href="empDetail.html" target="contentPage"><img alt="" src="img/detail.png" class="operateImg"></a>
-         			</td>
+          				<a href="javascript:; target="contentPage"  onclick="able('${user.account}')">禁用/恢复</a>
+          				--
+          				<a href="javascript:; target="contentPage"  onclick="showUserChangeRole('${user.account}')">更改角色</a>
+          			</td>
          			</tr>
          		</c:forEach>
          	</table>

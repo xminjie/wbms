@@ -27,6 +27,13 @@ public interface UserDao {
 	 boolean userAbleByAccount(String account);
 
 	List<User> queryAllUser();
+	
+	User queryByAccount(String  account);
+	
+	//修改用户的角色
+	boolean uerRoleModify(String account, Integer roleId);
+	
+	boolean modifyUserPasswd(String account, String password);
 	 
 	 
 	

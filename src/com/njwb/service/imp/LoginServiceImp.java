@@ -34,21 +34,38 @@ public class LoginServiceImp implements LoginService {
 
 	}
 
-	
 	public boolean userAbleByAccount(String account) {
 		// TODO Auto-generated method stub
 		return userDao.userAbleByAccount(account);
 	}
 
+	public List<User> queryAllUser() {
+		// 查所有用户
+		return userDao.queryAllUser();
+	}
+
+	public User queryByaccount(String account) {
+		// TODO Auto-generated method stub
+		return userDao.queryByAccount(account);
+	}
+
+	public boolean uerRoleModify(String account, Integer roleId) {
+		// TODO Auto-generated method stub
+		return userDao.uerRoleModify(account, roleId);
+	}
+
+	public boolean modifyUserPasswd(String account, String password) {
+		// TODO Auto-generated method stub
+		return userDao.modifyUserPasswd(account, password);
+	}
+	
+	
 	public static void main(String[] args) {
 		LoginServiceImp loginServiceImp = new LoginServiceImp();
 		loginServiceImp.setUserDao(new UserDaoImp());
 		System.out.println(loginServiceImp.queryMenuListByRoleId(2));
 	}
 
-	public List<User> queryAllUser() {
-//		查所有用户
-		return userDao. queryAllUser();
-	}
+	
 
 }

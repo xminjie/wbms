@@ -96,7 +96,9 @@ public class EmpController {
 		emp.setEmpEdu(request.getParameter("empEdu"));
 		emp.setEmpPhone("empPhone");
 		emp.setEmpEntryTime(DateUtil.stringToDate(request.getParameter("entryTime")));
-		empService.addEmp(emp);
-		return "success";
+		if(empService.addEmp(emp)){
+			return "success";
+		}
+		return "fail";
 	}
 }

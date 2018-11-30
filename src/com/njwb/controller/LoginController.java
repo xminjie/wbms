@@ -62,7 +62,7 @@ public class LoginController {
 
 		} else {
 			
-			List<Menu> menuList = loginService.queryMenuListByRoleId(u.getId());
+			List<Menu> menuList = loginService.queryMenuListByRoleId(u.getRoleId());
 			
 			//设置菜单列表
 			resquest.getSession().setAttribute("menuList", menuList);

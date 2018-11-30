@@ -10,6 +10,7 @@ public class User {
 	private Date createTime;
 	private Integer status;
 	private String name;
+	private String roleName;
 	public Integer getId() {
 		return id;
 	}
@@ -52,13 +53,19 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getRoleName() {
+		return roleName;
+	}
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
 	@Override
 	public String toString() {
 		return "User [account=" + account + ", createTime=" + createTime
 				+ ", id=" + id + ", name=" + name + ", passwd=" + passwd
-				+ ", roleId=" + roleId + ", status=" + status + "]";
-	}
-	
+				+ ", roleId=" + roleId + ", roleName=" + roleName + ", status="
+				+ status + "]";
+	} 
 	
  
 	// drop table if exist t_user;

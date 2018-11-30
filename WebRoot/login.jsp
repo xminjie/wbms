@@ -23,6 +23,20 @@
 		<link rel="stylesheet" href="css/reset.css" type="text/css"></link>
 		<script type="text/javascript" src="js/jquery-1.8.3.min.js">
 </script>
+
+<script type="text/javascript">
+	$(function(){
+		if(window.parent.length > 0){
+			window.parent.location = "login.action";
+		}
+	});
+
+
+
+</script>
+
+
+
 	</head>
 
 	<style type="text/css">

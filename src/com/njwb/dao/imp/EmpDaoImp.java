@@ -19,7 +19,7 @@ public class EmpDaoImp  implements EmpDao {
 	public Boolean addEmp(Emp emp) {
 		//添加员工的时候，同时创建登录账户
 		String sql1 = "insert into t_emp  values(?,?,? , ?,?,? , ?,?,?,now(),'xmj')";
-		String sql2 = "insert into t_user (account, passwd, name, role_id, status, create_time) values (?,?,?,0,-1,now())";
+		String sql2 = "insert into t_user (account, passwd, username, role_id, status, create_time) values (?,?,?,0,-1,now())";
 		try {
 			boolean b1 = jt.update(sql1, emp.getEmpNo()
 					,emp.getEmpName()
@@ -37,7 +37,7 @@ public class EmpDaoImp  implements EmpDao {
 			boolean b2 = jt.update(sql2,  emp.getEmpNo(), emp.getEmpNo(),emp.getEmpName());
 //			
 //			
-//			return (b1 && b2);
+			return (b1 && b2);
 		} catch (Exception e) {
 			log.info("添加员工粗错",e);
 			e.printStackTrace();
@@ -61,10 +61,10 @@ public class EmpDaoImp  implements EmpDao {
 
 	public Boolean modifyEmp(Emp emp) {
 		
-		//修改员工后，检查所有部门，把主管被掉走的部门，设置其主管为空
+		//修改员工后，检查所有部门，把主管被掉走的部门，设置其主管为空,并同步用户表
 		String sqlExe = "update t_emp set emp_name = ?, emp_role_id = ?,  emp_dept_no = ?, emp_sex = ?, emp_edu = ?, emp_email = ?, emp_phone = ? ,emp_entry_time = ? where emp_no = ?";
 		String sqlCheck = "update t_dept set dept_man_emp_no = null where dept_no != (select emp_dept_no from t_emp where dept_man_emp_no = emp_no)";
-		
+		String sqlCheck3 =  " update t_user set username = (select emp_name from t_emp where emp_no = account)";
 		try {
 			
 			
@@ -83,7 +83,8 @@ public class EmpDaoImp  implements EmpDao {
 					,emp.getEmpNo()
 					);
 			Boolean b2 = jt.update(sqlCheck);
-			return (b1 && b2);
+			Boolean b3 = jt.update(sqlCheck3);
+			return (b1 && b2 && b3);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -116,10 +117,10 @@ public class EmpDaoImp  implements EmpDao {
 	public static void main(String[] args) {
 		Emp  emp = new Emp("te1", "nnnn", "nn", "A1",	 "testpasswd", "A1", "DeptName", 2, "本科", 1, new Date());
 		EmpDaoImp empDaoImp = new EmpDaoImp();
-		System.out.println(empDaoImp.addEmp(emp));
+//		System.out.println(empDaoImp.addEmp(emp));
 //		System.out.println(empDaoImp.modifyEmp(emp));
 //		System.out.println(empDaoImp.queryEmp());
-//		System.out.println(empDaoImp.deleteEmpByEmpNo(emp.getEmpNo()));
+		System.out.println(empDaoImp.queryEmpByEmpNo("e01"));
 	}
 
 }

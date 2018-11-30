@@ -66,33 +66,7 @@ $(function(){
 		
 		
 		
-		
-<%--function add() {--%>
-<%--	var empParamsJson = {--%>
-<%--		empNo : $("#empNo").val(),--%>
-<%--		empName : $("#empName").val(),--%>
-<%--		sex : $("#sex").val(),--%>
-<%--		empDept : $("#empDept").val(),--%>
-<%--		email : $("#email").val(),--%>
-<%--		education : $("#education").val(),--%>
-<%--		phone : $("#phone").val(),--%>
-<%--		entryTime : $("#enteyTime").val()--%>
-<%--	};--%>
-<%----%>
-<%--	alert(empParamsJson);--%>
-<%--	$.ajax( {--%>
-<%--		url : "empAdd.action",--%>
-<%--		async : true,--%>
-<%--		type : "post",--%>
-<%--		data : empParamsJson,--%>
-<%--		dataType : "text",--%>
-<%--		success : function(result) {--%>
-<%--			if (result == "success") {--%>
-<%--				alert("添加成功！");--%>
-<%--				window.location.href = "showEmp.action";--%>
-<%--			}--%>
-<%--		}--%>
-<%--	});--%>
+		 
 <%----%>
 <%--}--%>
 </script>

@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
          	<h1 class="title">首页  &gt;&gt;员工管理 </h1>
          	<div class="add">
-         		<a href="empShowAdd.action" target="contentPage"><img alt="" src="img/add.png" width="18px" height="18px">添加员工</a>
+         		<a href="empShowAdd.action" ><img alt="" src="img/add.png" width="18px" height="18px">添加员工</a>
          	</div>
          	<table class="deptInfo">
          		<tr class="titleRow">
@@ -73,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          				<img alt="" src="img/delete.png" class="operateImg" onclick="del('${emp.empNo}')">
          				<a href="javascript:; target="contentPage"  onclick="look('${emp.empNo}')"><img alt="" src="img/edit.png" class="operateImg" ></a>
          				<a href="empDetail.html" target="contentPage"><img alt="" src="img/detail.png" class="operateImg"></a>
-         			</td>
+         				</td>
          			</tr>
          		</c:forEach>
          	</table>

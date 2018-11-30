@@ -15,8 +15,24 @@ public class UserDaoImp implements UserDao {
 	Logger log = Logger.getLogger(UserDaoImp.class);
 	JDBCTemplate jt = new JDBCTemplate();
 
+	public User queryByAccount(String account) {
+		String sql = "select * ,1 = 1 from t_user where account = ? ";
+		try {
+
+			List list = jt.query(sql, new UserRowMapper(), account);
+			if (list != null && list.size() == 1) {
+				return (User) list.get(0);
+			} else {
+				log.info("查到好几个用户");
+			}
+		} catch (Exception e) {
+			log.error("查询有毛病", e);
+		}
+		return null;
+	}
+
 	public User queryByAccountAndPasswd(String account, String passwd) {
-		String sql = "select * from t_user where account = ? and passwd = ? and status != -1";
+		String sql = "select * ,1 = 1 from t_user where account = ? and passwd = ? and status != -1";
 		try {
 
 			List list = jt.query(sql, new UserRowMapper(), account, passwd);
@@ -84,8 +100,6 @@ public class UserDaoImp implements UserDao {
 		return false;
 	}
 
-	
-
 	public boolean userAbleByAccount(String account) {
 		String sql = "update t_user set status = status * -1 where account = ?";
 		try {
@@ -96,33 +110,56 @@ public class UserDaoImp implements UserDao {
 		}
 		return false;
 	}
+
 	public List<User> queryAllUser() {
 		// query all users;
-		
-		String sql = "select * from t_user order by status desc";
-		
-		
+
+		String sql = "select * , (select role_name from t_role where t_user.role_id = t_role.role_id ) as role_name from t_user  where account != 'root' ";
+
 		try {
 			return jt.query(sql, new UserRowMapper());
 		} catch (Exception e) {
-//			query all users fialed;
+			// query all users fialed;
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
-	
+
+	public boolean uerRoleModify(String account, Integer roleId) {
+		String sql = "update t_user set role_id = ? where account = ? ";
+
+		try {
+			return jt.update(sql, roleId,account);
+		} catch (Exception e) {
+			// query all users fialed;
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	public static void main(String[] args) {
 		UserDaoImp userDaoImp = new UserDaoImp();
-//		System.out.println(userDaoImp.queryByAccountAndPasswd("admin", "admin"));
-//		System.out.println(userDaoImp.queryFaMenuByRoleId(1));
-//		System.out.println(userDaoImp.deleteUserByAccount("aaa"));
-//		System.out.println(userDaoImp.addUserByAccountAndPasswd("aaa", "aaa")	);
-//		System.out.println(userDaoImp.userAbleByAccount("aaa"));
+		// System.out.println(userDaoImp.queryByAccountAndPasswd("admin",
+		// "admin"));
+		// System.out.println(userDaoImp.queryFaMenuByRoleId(1));
+		// System.out.println(userDaoImp.deleteUserByAccount("aaa"));
+		// System.out.println(userDaoImp.addUserByAccountAndPasswd("aaa", "aaa")
+		// );
+		// System.out.println(userDaoImp.userAbleByAccount("aaa"));
 		System.out.println(userDaoImp.queryAllUser());
 
 	}
 
-	
+	public boolean modifyUserPasswd(String account, String password) {
+		String sql = "update t_user set passwd = ? where account = ? ";
+
+		try {
+			return jt.update(sql, password,account);
+		} catch (Exception e) {
+			// query all users fialed;
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 }
