@@ -80,7 +80,7 @@ body,div,table,tr,td {
 				<table id="empEditTable">
 					<tr>
 						<td>
-						<input type="hidden" name = "empNo" value="${loginUser.account}">
+						<input  type="hidden" name = "empNo" value="${loginUser.account}">
 						<input type="hidden" name = "billNo" value="${bill.billNo}">
 							当前账单编号: B${bill.billNo}
 						</td>
@@ -94,7 +94,7 @@ body,div,table,tr,td {
 							报销类型:
 						</td>
 						<td>
-							<select name="billType" id="billType">
+							<select readonly name="billType" id="billType">
 									<option name="billType" value="1" ${bill.billType eq 1 ? "selected" : ""} >
 										差旅费
 									</option>
@@ -112,7 +112,7 @@ body,div,table,tr,td {
 							金额
 						</td>
 						<td>
-							<input type="text" name="billCnt" id="billCnt" value = "${bill.billCnt}" />
+							<input readonly type="text" name="billCnt" id="billCnt" value = "${bill.billCnt}" />
 						</td>
 					</tr>
 					<tr>
@@ -120,7 +120,7 @@ body,div,table,tr,td {
 							申请时间:
 						</td>
 						<td>
-							<input type="text" name="billTime" id="billTime" value = "${bill.billTime}"  />
+							<input readonly type="text" name="billTime" id="billTime" value = "${bill.billTime}"  />
 						</td>
 					</tr>
 					<tr>
@@ -128,7 +128,7 @@ body,div,table,tr,td {
 							详细说明:
 						</td>
 						<td>
-							<textarea rows="5" cols="40" name="billDetail"  >${bill.billDetail}</textarea>
+							<textarea rows="5" cols="40" name="billDetail" readonly  >${bill.billDetail}</textarea>
 						</td>
 					</tr>
 					<tr>
@@ -137,15 +137,14 @@ body,div,table,tr,td {
 							提交选项:
 						</td>
 						<td>
-							草稿<input type="radio"  name = "billStatus"  value = "-1" ${bill.billStatus eq -1 ? "checked" : ""}><br>
+							草稿<input readonly type="radio"  name = "billStatus"  value = "-1" ${bill.billStatus eq -1 ? "checked" : ""}><br>
 							正式提交<input type="radio"  name = "billStatus"  value = "1" ${bill.billStatus eq 1 ? "checked" : ""}>
 						</td>
 					</tr>
 					<tr>
 					
 						<td colspan="2">
-							<input type="submit" value="修改"  />
-							<input type="reset" value="重置" />
+							
 							<a href="bills.action" target="contentPage"><input
 									type="button" value="返回">
 							</a>

@@ -39,6 +39,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		 function billLook(billNo){
 				window.location="billLook.action" + "?billNo="+ billNo ;	
 		}
+		 
+		 function billDetail(billNo){
+				window.location="billDetail.action" + "?billNo="+ billNo ;	
+		}
 		
 		 
 	
@@ -47,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
          	<h1 class="title">首页  &gt;&gt;报销管理 </h1>
-         	${billList}
+<%--         	${billList}--%>
           	<div class="add">
           	<c:if test="${loginUser.account != 'root'}">
          		<a href="/wbms/njwb/bill/billShowAdd.jsp" target="contentPage"><img alt="" src="img/add.png" width="18px" height="18px">添加报销账单</a>
@@ -79,9 +83,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          				<td>${bill.billStatus eq -1 ? "草稿":"已提交"}</td>
          				<td>
          				<c:if test="${bill.billStatus eq -1}">
-         					<img alt="" src="img/delete.png" class="operateImg" onclick="del('${bill.billNo}')">
-         					<img alt="" src="img/edit.png" class="operateImg" onclick="billLook('${bill.billNo}')">
+         						<c:if test="${bill.billEmpNo eq loginUser.account}">
+         						<img alt="" src="img/delete.png" class="operateImg" onclick="del('${bill.billNo}')">
+         						<img alt="" src="img/edit.png" class="operateImg" onclick="billLook('${bill.billNo}')">
+         						
+         					</c:if>
          				</c:if>
+         				<img alt="详细"   class="operateImg" src="img/detail.png" onclick="billDetail('${bill.billNo}')">
          				</td>
          			</tr>
          		</c:forEach>

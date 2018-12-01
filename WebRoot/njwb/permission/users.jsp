@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           	<div class="add">
          		<a href="empShowAdd.action" target="contentPage"><img alt="" src="img/add.png" width="18px" height="18px">添加员工</a>
          	</div>
-         	${userList}
+<%--         	${userList}--%>
          	<table class="deptInfo">
          		<tr class="titleRow">
        				<td>账户</td>

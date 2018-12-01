@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<div id = "mainDiv">
 	  	
 	    <h1 class="title">首页  &gt;&gt;权限变更 </h1>
-	    ${role}
+<%--	    ${role}--%>
 	    <div id = "contentDiv">
 	    	<div id = "content-left" class="lft">
 	    	 当前角色: ${role.roleId} -- ${role.roleName} 

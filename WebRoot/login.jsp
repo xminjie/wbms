@@ -25,11 +25,9 @@
 </script>
 
 <script type="text/javascript">
-	$(function(){
 		if(window.parent.length > 0){
 			window.parent.location = "login.action";
 		}
-	});
 
 
 

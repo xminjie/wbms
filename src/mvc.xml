@@ -126,6 +126,14 @@
 	<action name="/billLook.action" class="billController" method="billLook">
 		<result name="success" type="forward">/njwb/bill/billLook.jsp</result>
 	</action>
+	
+	<action name="/billDetail.action" class="billController" method="billLook">
+		<result name="success" type="forward">/njwb/bill/billDetail.jsp</result>
+	</action>
+	
+	<action name="/sta.action" class="billController" method="sta">
+		<result name="success" type="forward">/njwb/bill/sta.jsp</result>
+	</action>
 
 
 

@@ -68,13 +68,13 @@ insert into t_menu(menu_id,menu_name,menu_href_url,menu_parent_id,menu_create_ti
 insert into t_menu(menu_id,menu_name,menu_href_url,menu_parent_id,menu_create_time) values(13,'请假管理','dfgfd',1,now());
 
 insert into t_menu(menu_id,menu_name,menu_href_url,menu_parent_id,menu_create_time) values(21,'报销管理','bills.action',2,now());
-insert into t_menu(menu_id,menu_name,menu_href_url,menu_parent_id,menu_create_time) values(22,'报销统计','',2,now());
+insert into t_menu(menu_id,menu_name,menu_href_url,menu_parent_id,menu_create_time) values(22,'报销统计','sta.action',2,now());
  
 
 insert into t_menu(menu_id,menu_name,menu_href_url,menu_parent_id,menu_create_time) values(31,'账户管理','users.action',3,now());
 insert into t_menu(menu_id,menu_name,menu_href_url,menu_parent_id,menu_create_time) values(32,'角色管理','roles.action',3,now());
 insert into t_menu(menu_id,menu_name,menu_href_url,menu_parent_id,menu_create_time) values(33,'权限管理','njwb/permission/hello.jsp',3,now());
-insert into t_menu(menu_id,menu_name,menu_href_url,menu_parent_id,menu_create_time) values(34,'理密重置','njwb/permission/passwdReset.jsp',3,now());
+insert into t_menu(menu_id,menu_name,menu_href_url,menu_parent_id,menu_create_time) values(34,'密码重置','njwb/permission/passwdReset.jsp',3,now());
 insert into t_menu(menu_id,menu_name,menu_href_url,menu_parent_id,menu_create_time) values(35,'系统退出','loginOut.action',3,now());
 select * from t_menu;
 
@@ -223,9 +223,9 @@ create table t_bill(
 	bill_status int
 )engine=Innodb,  charset = utf8;
 
-insert into t_bill (bill_dept_no, bill_emp_no,bill_cnt,bill_type,bill_detail,bill_time,bill_status) values('A1','e01',30.0, 1 ,'打的 sdf20 块','2015-9-9',-1);
+insert into t_bill (bill_dept_no, bill_emp_no,bill_cnt,bill_type,bill_detail,bill_time,bill_status) values('A1','e01',30.0, 1 ,'打的 sdf20 块','2015-9-9',1);
 insert into t_bill (bill_dept_no, bill_emp_no,bill_cnt,bill_type,bill_detail,bill_time,bill_status) values('A1','e01',20.5, 1 ,'打的sdff 20 块','2015-9-9',1);
-insert into t_bill (bill_dept_no, bill_emp_no,bill_cnt,bill_type,bill_detail,bill_time,bill_status) values('A2','e02',50.0, 2 ,'打的fdshrtf 20 块','2015-9-9',-1);
+insert into t_bill (bill_dept_no, bill_emp_no,bill_cnt,bill_type,bill_detail,bill_time,bill_status) values('A2','e02',50.0, 2 ,'打的fdshrtf 20 块','2015-9-9',1);
 insert into t_bill (bill_dept_no, bill_emp_no,bill_cnt,bill_type,bill_detail,bill_time,bill_status) values('A3','e03',10.0, 1 ,'打的 fh20 块','2015-9-9',-1);
 insert into t_bill (bill_dept_no, bill_emp_no,bill_cnt,bill_type,bill_detail,bill_time,bill_status) values('A4','e05',80.0, 3,'打的 jhhthfghh0 块','2015-9-9',1);
 insert into t_bill (bill_dept_no, bill_emp_no,bill_cnt,bill_type,bill_detail,bill_time,bill_status) values('A1','e01',20.0, 1 ,'打的 20hgffgh 块','2015-9-9',-1);
@@ -250,6 +250,7 @@ select * from t_user;
 select * from t_role;
 select * from t_menu_role;
 select * from t_menu;
+select * from t_bill;
 
 
 

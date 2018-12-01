@@ -75,7 +75,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          				<td>${dept.deptManEmpName}</td>
          				<td>${dept.deptEmpCnt}</td>
          				<td>
+         				<c:if test="${dept.deptEmpCnt eq 0}">
          				<img alt="" src="img/delete.png" class="operateImg" onclick="del('${dept.deptNo}')">
+         				</c:if>
          				<a href="javascript:; target="contentPage"  onclick="look('${dept.deptNo}')"><img alt="" src="img/edit.png" class="operateImg" ></a>
          				<a href="deptDetail.html" target="contentPage"><img alt="" src="img/detail.png" class="operateImg"></a>
          			</td>

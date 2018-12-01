@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          	</form>
          		
          	</div>
-         	${roleList}
+<%--         	${roleList}--%>
          	<table class="deptInfo">
          		<tr class="titleRow">
        				<td>角色id</td>

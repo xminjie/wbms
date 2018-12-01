@@ -26,8 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    ${roleList } 
-    ${user }
+<%--    ${roleList } --%>
+<%--    ${user }--%>
     
     <table class="deptInfo">
          		<tr class="titleRow">

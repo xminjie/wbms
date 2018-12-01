@@ -48,8 +48,8 @@ body,div,table,tr,td {
 		<h1 class="title">
 			员工修改
 			</h1>
-			${emp}
-			${deptList}
+<%--			${emp}--%>
+<%--			${deptList}--%>
 			<form action="empModify.action" method="post">
 				<table id="empEditTable">
 					<tr>
